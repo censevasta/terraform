@@ -284,6 +284,12 @@ log_group_name = ErrorLog
 :wq
 ```
 
+- to activate a new configuraion stop and start the "awslogsd".
+
+```
+sudo systemctl stop awslogsd
+sudo systemctl start awslogsd
+```
 - go tot the Cloudwatch logs group again 
 
 - click the created log group named "AccessLog" and "ErrorLog" ---> show the newly created "log streams"
