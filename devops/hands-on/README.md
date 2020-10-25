@@ -12,3 +12,5 @@ List of hands-on trainings within DevOps as follows;
 
 - [Hands-on Docker-05 : Docker Image Basic Operations](./docker/docker-05-image-basic-operations/)
 
+- [Hands-on Maven-01 : Using Maven As a Build Tool] (./maven/maven-01-using-maven-as-a-build-tool/)
+
