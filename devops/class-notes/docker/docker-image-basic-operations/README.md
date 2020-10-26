@@ -30,7 +30,7 @@ flask
 
 # Dockerfile contents
 
-- Both of the `Dockerfile` files are working.
+- All of the three `Dockerfile` files are working.
 
 - Compare them
 
@@ -85,8 +85,6 @@ CMD ["roman-numerals-converter-app.py"]
 
 ```text
 RUN git clone -b docker https://<token>:x-oauth-basic@github.com/.../myapp.git /myapp/
-RUN cp -R /myapp/* /home/app/
-RUN chown app:app -R /home/app/
 ```
 
 
