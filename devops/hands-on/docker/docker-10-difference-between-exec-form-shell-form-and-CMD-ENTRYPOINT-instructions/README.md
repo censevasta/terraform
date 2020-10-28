@@ -78,7 +78,7 @@ docker run cmd-exec
 hello
 ```
 
-- It seems same. What is the different?
+- It seems the same. What is the difference?
 
 - Change the Dockerfile as below. This time, we input an environment variable instead of hello. 
 
