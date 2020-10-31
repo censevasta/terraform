@@ -1,4 +1,4 @@
-# Coding Challenge - 008: Calculate Stock Profit
+# Coding Challenge - 010: Calculate Stock Profit
 
 The purpose of this coding challenge is to write a program that calculates maximum profit you could get from a stock.
 
