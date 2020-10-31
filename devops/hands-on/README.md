@@ -16,7 +16,17 @@ List of hands-on trainings within DevOps as follows;
   
 - [Hands-on Docker-07 :  Dockerize To-Do Web API Developed in Python Flask](./docker/docker-07-dockerize-to-do-app-on-python-flask/)
 
-- [Hands-on Docker-10 : Difference between shell form and exec form, and ENTRYPOINT instruction and CMD instruction](./docker-10-difference-between-exec-form-shell-form-and-CMD-ENTRYPOINT-instructions/README.md)
+- [Hands-on Docker-08 : Docker Swarm Basic Operations](./docker/docker-08-swarm-basic-operations)
+
+- [Hands-on Docker-09 : Docker Swarm Networking, Managing Services, Secrets and Stacks](./docker/docker-09-swarm-networking-managing-services-secrets-stacks)
+
+- [Hands-on Docker-10 : Difference between shell form and exec form, and ENTRYPOINT instruction and CMD instruction](./docker/docker-10-difference-between-exec-form-shell-form-and-CMD-ENTRYPOINT-instructions)
 
 - [Hands-on Maven-01 : Using Maven As a Build Tool](./maven/maven-01-using-maven-as-a-build-tool/)
+
+- [Hands-on Jenkins-01 : Installing Jenkins on Amazon Linux 2 EC2 Instance](./jenkins/jenkins-01-installing-on-ec2-linux2)
+
+- [Hands-on Jenkins-02 : Building Jenkins Job on Amazon Linux 2 AWS EC2 Instance](./jenkins/jenkins-02-building-jenkins-job)
+
+- [Hands-on Jenkins-03 : Building Jenkins Pipeline on Amazon Linux 2 AWS EC2 Instance](./jenkins/jenkins-03-building-jenkins-pipeline)
 
