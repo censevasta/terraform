@@ -315,10 +315,10 @@ docker version
 ```
 
 
-Install docker-compose
+- Install `docker-compose`
+
 ```bash
 sudo curl -L "https://github.com/docker/compose/releases/download/1.27.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-
 
 sudo chmod +x /usr/local/bin/docker-compose
 ```
@@ -331,9 +331,10 @@ cd jenkins
 
 mkdir  jenkins_home
 sudo chmod 777 jenkins_home
-``
+```
 
-Make a file named as `docker-compose.yaml` and add this content
+- Create a file named as `docker-compose.yaml` and add this content.
+
 ```bash
 version: '3'
 services:
@@ -347,7 +348,8 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
 ```
 
-Make a file named as `Dockerfile` and add this content
+- Create a file named as `Dockerfile` and add this content.
+
 ```bash
 FROM jenkins/jenkins
 USER root
@@ -356,13 +358,13 @@ RUN apt-get update && apt-get install python3-pip -y && \
 USER jenkins
 ```
 
-Exectue the following command.
+- Exectue the following command.
+
 ```bash
 docker-compose up -d
 ```
 
 - The administrator password can also be taken from Docker logs.
-
 ```bash
 docker logs jenkins
 ```
