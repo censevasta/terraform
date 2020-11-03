@@ -531,6 +531,12 @@ pipeline {
             steps {
                 sh 'mvn -f hello-app/pom.xml -B -DskipTests clean package'
             }
+            post {
+                success {
+                    echo "Now Archiving the Artifacts....."
+                    archiveArtifacts artifacts: '**/*.jar'
+                }
+            }
         }
         stage('Test') {
             steps {
@@ -540,12 +546,6 @@ pipeline {
                 always {
                     junit 'hello-app/target/surefire-reports/*.xml'
                 }
-            }
-        }
-        stage('Deliver') {
-            steps {
-                sh 'chmod +x ./hello-app/deliver-script.sh'
-                sh './hello-app/deliver-script.sh'
             }
         }
     }
