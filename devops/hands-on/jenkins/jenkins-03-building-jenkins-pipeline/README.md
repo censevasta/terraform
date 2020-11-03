@@ -529,23 +529,23 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'mvn -B -DskipTests clean package'
+                sh 'mvn -f hello-app/pom.xml -B -DskipTests clean package'
             }
         }
         stage('Test') {
             steps {
-                sh 'mvn test'
+                sh 'mvn -f hello-app/pom.xml test'
             }
             post {
                 always {
-                    junit 'target/surefire-reports/*.xml'
+                    junit 'hello-app/target/surefire-reports/*.xml'
                 }
             }
         }
         stage('Deliver') {
             steps {
-                sh 'chmod +x deliver-script.sh'
-                sh './deliver-script.sh'
+                sh 'chmod +x ./hello-app/deliver-script.sh'
+                sh './hello-app/deliver-script.sh'
             }
         }
     }
