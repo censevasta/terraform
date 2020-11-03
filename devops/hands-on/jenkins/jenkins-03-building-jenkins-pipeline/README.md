@@ -350,6 +350,24 @@ pipeline {
 }
 ```
 
+- For native structured Jenkins Server
+
+```groovy
+pipeline {
+    agent any
+    stages {
+        stage('run') {
+            steps {
+                echo 'Clarusway_Way to Reinvent Yourself'
+                sh 'python --version'
+                sh 'python pipeline.py'
+            }
+        }
+    }
+}
+```
+
+
 - Commit and push the changes to the remote repo on GitHub.
 
 ```bash
@@ -475,6 +493,37 @@ pipeline {
             args '-v /root/.m2:/root/.m2'
         }
     }
+    stages {
+        stage('Build') {
+            steps {
+                sh 'mvn -B -DskipTests clean package'
+            }
+        }
+        stage('Test') {
+            steps {
+                sh 'mvn test'
+            }
+            post {
+                always {
+                    junit 'target/surefire-reports/*.xml'
+                }
+            }
+        }
+        stage('Deliver') {
+            steps {
+                sh 'chmod +x deliver-script.sh'
+                sh './deliver-script.sh'
+            }
+        }
+    }
+}
+```
+
+- For native structured Jenkins Server
+
+```groovy
+pipeline {
+    agent any
     stages {
         stage('Build') {
             steps {
