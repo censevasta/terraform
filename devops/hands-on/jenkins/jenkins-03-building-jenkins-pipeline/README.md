@@ -405,6 +405,8 @@ public class Hello {
 
 - Update the `Jenkinsfile` with the following pipeline script, and explain the changes.
 
+- `yum install java-devel` to install java dependecies.
+
 ```groovy
 pipeline {
     agent { label 'master' }
