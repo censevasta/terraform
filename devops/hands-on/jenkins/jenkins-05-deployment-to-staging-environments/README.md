@@ -561,7 +561,7 @@ pipeline {
         }
 ```
 
-- Note: You can also use updated `Jenkinsfile2` file intead of updating `Jenkinsfile`.
+- Note: You can also use updated `Jenkinsfile2` file instead of updating `Jenkinsfile`.
 
 - Go to the `package-application-code-pipeline` then select `Build Now` and observe the behaviors.
 
