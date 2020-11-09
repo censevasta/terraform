@@ -507,7 +507,7 @@ pipeline {
 
 - For name, enter `deploy-application-staging-environment-pipeline`
 
-- Athe bottom, `Copy from`, enter `Deploy-Application-Staging-Environment`
+- At the bottom, `Copy from`, enter `Deploy-Application-Staging-Environment`
 
 - Click `OK`, and `Save`
 
@@ -517,7 +517,7 @@ pipeline {
 
 - For name, enter `deploy-application-production-environment-pipeline`
 
-- Athe bottom, `Copy from`, enter `Deploy-Application-Production-Environment`
+- At the bottom, `Copy from`, enter `Deploy-Application-Production-Environment`
 
 - Click `OK`, and `Save`
 
