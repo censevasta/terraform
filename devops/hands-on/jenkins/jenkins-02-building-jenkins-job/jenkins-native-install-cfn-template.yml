@@ -13,6 +13,24 @@ Parameters:
     ConstraintDescription: Must one of the existing EC2 KeyPair
 
 Resources:
+  EC2FullAccessToECR:
+    Type: "AWS::IAM::Role"
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service:
+              - ec2.amazonaws.com
+            Action:
+              - 'sts:AssumeRole'
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryFullAccess
+  EC2toECRProfile:
+    Type: "AWS::IAM::InstanceProfile"
+    Properties:
+      Roles: #required
+        - !Ref EC2FullAccessToECR
   JenkinsServerSecurityGroup:
     Type: AWS::EC2::SecurityGroup
     Properties:
@@ -33,15 +51,16 @@ Resources:
   JenkinsServer:
     Type: AWS::EC2::Instance
     Properties:
-      ImageId: ami-0947d2ba12ee1ff75
+      ImageId: ami-0947d2ba12ee1ff75 
       InstanceType: t2.micro
       KeyName: !Ref KeyPairName
+      IamInstanceProfile: !Ref EC2toECRProfile
       SecurityGroupIds:
         - !GetAtt JenkinsServerSecurityGroup.GroupId
       Tags:                
         -                        
           Key: Name
-          Value: !Sub joe-blue-native-${AWS::StackName}   
+          Value: !Sub jb-native-${AWS::StackName}   
       UserData:
         Fn::Base64: |
           #! /bin/bash
@@ -67,8 +86,10 @@ Resources:
           amazon-linux-extras install docker -y
           systemctl start docker
           systemctl enable docker
-          usermod -a -G docker ec2-user
-          usermod -a -G docker jenkins
+          usermod -aG docker ec2-user
+          usermod -aG docker jenkins
+          chown jenkins:docker /var/run/docker.sock
+          systemctl restart  docker
           curl -L "https://github.com/docker/compose/releases/download/1.27.4/docker-compose-$(uname -s)-$(uname -m)" \
           -o /usr/local/bin/docker-compose
           chmod +x /usr/local/bin/docker-compose
