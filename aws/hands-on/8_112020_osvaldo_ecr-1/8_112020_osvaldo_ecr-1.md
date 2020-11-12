@@ -57,7 +57,7 @@ At the end of the this hands-on training, students will be able to;
 - Create the repository and explain the complete URI.(*Combination of registry and repo name*)
 
 ```text
-xxxxxxxxxxxx.dkr.ecr.us-east-1.amazonaws.com/student1-repo/todo-app
+<aws_account_id>.dkr.ecr.us-east-1.amazonaws.com/student1-repo/todo-app
 ```
 
 ## Part 3 - Configuring AWS CLI to Work with AWS ECR
@@ -156,20 +156,20 @@ docker rm todo
 - Tag the image to push it to ECR repository.
 
 ```bash
-docker tag todo-app:latest xxxxxxxxxxx.dkr.ecr.us-east-1.amazonaws.com/student1-repo/todo-app:latest
+docker tag todo-app:latest <aws_account_id>.dkr.ecr.us-east-1.amazonaws.com/student1-repo/todo-app:latest
 ```
 
 - Push the image to your ECR repository and show the pushed image on AWS ECR Console.
 
 ```bash
-docker push xxxxxxxxxxx.dkr.ecr.us-east-1.amazonaws.com/student1-repo/todo-app:latest
+docker push <aws_account_id>.dkr.ecr.us-east-1.amazonaws.com/student1-repo/todo-app:latest
 ```
 
 - Create an container from image located ECR
 
 ```bash
-docker pull xxxxxxxxxxxxx.dkr.ecr.us-east-1.amazonaws.com/student1-repo/todo-app:latest
-docker run --name todo -dp 80:3000 xxxxxxxxxxxxxx.dkr.ecr.us-east-1.amazonaws.com/student1-repo/todo-app:latest
+docker pull <aws_account_id>.dkr.ecr.us-east-1.amazonaws.com/student1-repo/todo-app:latest
+docker run --name todo -dp 80:3000 <aws_account_id>.dkr.ecr.us-east-1.amazonaws.com/student1-repo/todo-app:latest
 ```
 - Stop and remove container
 
@@ -189,20 +189,20 @@ docker build -t todo-app:latest .
 - Tag the image to push it to ECR repository.
 
 ```bash
-docker tag todo-app:latest xxxxxxxxxxx.dkr.ecr.us-east-1.amazonaws.com/student1-repo/todo-app:latest
+docker tag todo-app:latest <aws_account_id>.dkr.ecr.us-east-1.amazonaws.com/student1-repo/todo-app:latest
 ```
 
 - Push the image to your ECR repository and show the pushed image on AWS ECR Console.
 
 ```bash
-docker push xxxxxxxxxxx.dkr.ecr.us-east-1.amazonaws.com/student1-repo/todo-app:latest
+docker push <aws_account_id>.dkr.ecr.us-east-1.amazonaws.com/student1-repo/todo-app:latest
 ```
 - Show the repository . Immutable disable.
 
 - Create an container from image located ECR
 
 ```bash
-docker run --name todo-v1 -dp 80:3000 xxxxxxxxxxxxxx.dkr.ecr.us-east-1.amazonaws.com/student1-repo/todo-app:latest
+docker run --name todo-v1 -dp 80:3000 <aws_account_id>.dkr.ecr.us-east-1.amazonaws.com/student1-repo/todo-app:latest
 ```
 - Show the changes in the browser 
 
@@ -226,8 +226,8 @@ aws ecr create-repository \
 - Tag and push the image to your `student2-repo/todo-app` repository and show the pushed image on AWS ECR Console.
 
 ```bash
-docker tag todo-app:latest xxxxxxxxxx.dkr.ecr.us-east-1.amazonaws.com/student2-repo/todo-app:latest
-docker push xxxxxxxxxx.dkr.ecr.us-east-1.amazonaws.com/student2-repo/todo-app:latest
+docker tag todo-app:latest <aws_account_id>.dkr.ecr.us-east-1.amazonaws.com/student2-repo/todo-app:latest
+docker push <aws_account_id>.dkr.ecr.us-east-1.amazonaws.com/student2-repo/todo-app:latest
 ```
 
 - Delete the all local images of `todo-app`.
@@ -246,14 +246,14 @@ docker image ls
 - Pull the image from your `student2-repo/todo-app` repository  to the local.
 
 ```bash
-docker pull xxxxxxxxxxxxx.dkr.ecr.us-east-1.amazonaws.com/student2-repo/todo-app:latest
-docker run -dp 80:3000 xxxxxxxxxxxxxx.dkr.ecr.us-east-1.amazonaws.com/student2-repo/todo-app:latest
+docker pull <aws_account_id>.dkr.ecr.us-east-1.amazonaws.com/student2-repo/todo-app:latest
+docker run -dp 80:3000 <aws_account_id>.dkr.ecr.us-east-1.amazonaws.com/student2-repo/todo-app:latest
 ```
 
 - Or directly run the `todo-app` from the ECR repo.
 
 ```bash
-docker run -dp 80:3000 xxxxxxxxxxxxx.dkr.ecr.us-east-1.amazonaws.com/student2-repo/todo-app:latest
+docker run -dp 80:3000 <aws_account_id>.dkr.ecr.us-east-1.amazonaws.com/student2-repo/todo-app:latest
 ```
 
 - Check if the To-Do App is running by entering `http://<ec2-host-name>` in a browser.
