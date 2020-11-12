@@ -195,7 +195,7 @@ Press "i" to edit
 pipeline {
     agent { label "master" }
     environment {
-        ECR_REGISTRY = "387408214354.dkr.ecr.us-east-1.amazonaws.com"
+        ECR_REGISTRY = "<aws_account_id>.dkr.ecr.us-east-1.amazonaws.com"
         APP_REPO_NAME= "clarusway-repo/todo-app"
     }
     stages {
@@ -255,13 +255,13 @@ git push
 -if you wan to manually run 
 
 ```bash
-aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 387408214354.dkr.ecr.us-east-1.amazonaws.com
+aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin <aws_account_id>.dkr.ecr.us-east-1.amazonaws.com
 ```
 
 - Then run the image
 
 ```bash
-docker run --name todo -dp 80:3000 387408214354.dkr.ecr.us-east-1.amazonaws.com/clarusway-repo/todo-app:latest
+docker run --name todo -dp 80:3000 <aws_account_id>.dkr.ecr.us-east-1.amazonaws.com/clarusway-repo/todo-app:latest
 ```
 - Delete the container 
 
@@ -305,7 +305,7 @@ Press "i" to edit
   pipeline {
     agent { label "master" }
     environment {
-        ECR_REGISTRY = "387408214354.dkr.ecr.us-east-1.amazonaws.com"
+        ECR_REGISTRY = "<aws_account_id>.ecr.us-east-1.amazonaws.com"
         APP_REPO_NAME= "clarusway-repo/todo-app"
     }
     stages {
