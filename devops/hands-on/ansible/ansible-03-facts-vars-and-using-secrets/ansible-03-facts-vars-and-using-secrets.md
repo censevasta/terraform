@@ -1,4 +1,4 @@
-# Hands-on Ansible-04 : Using facts, vars and secrets
+# Hands-on Ansible-03 : Using facts, vars and secrets
 
 Purpose of the this hands-on training is to give students the knowledge of ansible facts gathering and working with secret values.
 
