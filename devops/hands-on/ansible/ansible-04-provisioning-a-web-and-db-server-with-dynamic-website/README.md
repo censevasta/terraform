@@ -1,5 +1,5 @@
 
-# Hands-on Ansible-03: Provisioning a Web Server and a Database Server with a Dynamic Website Using Ansible
+# Hands-on Ansible-04: Provisioning a Web Server and a Database Server with a Dynamic Website Using Ansible
 
 The purpose of this hands-on training is to give students the knowledge of provisioning a web and database server with a dynamic website.
 
