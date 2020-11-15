@@ -114,36 +114,50 @@ $ ansible-playbook ping-playbook.yml
 
 - Install ngnix server and restart it with using Ansible roles.
 
-ansible-galaxy init /home/ec2-user/ansible/roles/ngnix
-cd /home/ec2-user/ansible/roles/ngnix
+ansible-galaxy init /home/ec2-user/ansible/roles/apache
+
+
+cd /home/ec2-user/ansible/roles/apache
 ll
 sudo yum install tree
-tree nginx/
+tree
 
 - Create tasks/main.yml with the following.
 
 vi tasks/main.yml
 
+```yml
+- name: installing apache
+  yum:
+    name: httpd
+    state: latest
 
-- name: ensure nginx is at the latest version
-  yum: name=nginx state=latest
+- name: index.html
+  copy:
+    content: "<h1>Hello Clarusway</h1>"
+    dest: /var/www/html/index.html
 
-- name: start nginx
+- name: restart apache2
   service:
-      name: nginx
-      state: started
+    name: httpd
+    state: restarted
+    enabled: yes
+```
 
-- Create playbook11.yml.
+- Create a playbook named "role1.yml".
 
-cd /home/ec2-user/dynamic-inventory/
-vi playbook11.yml
+cd /home/ec2-user/working-with-roles/
+vi role1.yml
 
 
 ---
-- name: Install and Start ngnix
-  hosts: _WEB
+- name: Install and Start apache
+  hosts: _test_server
+  become: yes
   roles:
-    - ngnix
+    - apache
+```
+
 
 ## Part 3 - Using Ansible Roles from Ansible Galaxy
 
@@ -151,7 +165,7 @@ vi playbook11.yml
 
 - Click the Search option
 
-- Write ngnx
+- Write nginx
 
 - Explane the difference beetween collections and roles
 
@@ -282,7 +296,7 @@ $ vi main.yml
   user: ec2-user
   become: true
   vars:
-    ansible_ssh_private_key_file: "home/ec2-user/mykey.pem"
+    ansible_ssh_private_key_file: "/home/ec2-user/mykey.pem"
 
   roles:
     - role: geerlingguy.nginx
@@ -314,22 +328,6 @@ GALAXY_ROLE_SKELETON_IGNORE(default) = ['^.git$', '^.*/.git_keep$']
 ```
 
 
-
-- Install Apache server and restart it with using Ansible roles.
-
-```bash
-ansible-galaxy init /etc/ansible/roles/apache
-cd roles/apache
-ll
-yum install tree
-tree apache/
-```
-
-- Create tasks/main.yml with the following.
-
-```bash
-vi tasks/main.yml
-```
 
 
 
