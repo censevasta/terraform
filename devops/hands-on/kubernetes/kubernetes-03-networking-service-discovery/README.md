@@ -169,7 +169,7 @@ spec:
 ```bash
 kubectl apply -f forping.yaml
 kubectl exec -it for-ping -- sh
-/ # ping 172.16.166.180
+/ # ping 172.16.166.180 burada podun ip numarasi yazilinca ancak ping atiyor yoksa atmiyor ayrica podun ismine de ping atmiyor.
 ```
 
 - Show the Pods detailed information and learn their IP addresses again.
