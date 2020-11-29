@@ -55,4 +55,4 @@ List of hands-on trainings within DevOps as follows;
 
 - [Hands-on Kubernetes-05 : Managing Secrets and ConfigMaps](./kubernetes-05-managing-secrets-and-configmaps)
 
-[Hands-on Kubernetes-06 : Kubernetes Volumes](./kubernetes-06-pods-volumes)
+- [Hands-on Kubernetes-06 : Kubernetes Volumes](./kubernetes-06-pods-volumes)
