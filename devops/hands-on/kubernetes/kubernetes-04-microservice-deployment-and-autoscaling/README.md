@@ -173,7 +173,7 @@ spec:
       volumes:
         #- name: mongo-storage
         #  hostPath:
-        #    path: /data/db
+        #    path: /home/ubuntu/pv-data
         - name: mongo-storage
           persistentVolumeClaim:
             claimName: database-persistent-volume-claim
