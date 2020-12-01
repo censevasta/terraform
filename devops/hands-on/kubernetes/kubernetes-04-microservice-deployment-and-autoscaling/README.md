@@ -57,6 +57,12 @@ $ curl -s --create-dirs -o "/home/ubuntu/microservices/microservices.tar.gz" -L 
 $ tar -xvf microservices.tar.gz
 ```
 
+- Alternatively, you can copy from local host to a remote host's directory.
+
+```bash
+$ scp -i <your-pem-file> -r cohort-4-20/clarusway-aws-devops-4-20/devops/hands-on/kubernetes/kubernetes-04-microservice-deployment-and-autoscaling/microservices-yaml-files ubuntu@<master-ip>:/home/ubuntu/microservices
+```
+
 The directory structure is as follows:
 ```text
 hands-on
