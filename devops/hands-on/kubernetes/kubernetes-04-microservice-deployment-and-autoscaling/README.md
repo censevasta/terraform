@@ -46,7 +46,7 @@ In this study, we will present an application that contains 2 unrelated sub-appl
   
 - Second one is used to demonstrate Horizontal Pod Autoscaler fuctionality based on the php-apache image.
 
-- Download the lesson folder from "https://github.com/clarusway/clarusway-aws-devops-4-20/master/devops/hands-on/kubernetes/kubernetes-04-microservice-deployment-and-autoscaling".
+- Download the lesson folder from "https://github.com/clarusway/clarusway-aws-devops-4-20/tree/master/devops/hands-on/kubernetes/kubernetes-04-microservice-deployment-and-autoscaling".
 
 ```bash
 $ mkdir microservices
