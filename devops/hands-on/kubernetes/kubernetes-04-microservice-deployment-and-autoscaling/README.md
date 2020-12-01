@@ -52,7 +52,7 @@ In this study, we will present an application that contains 2 unrelated sub-appl
 $ mkdir microservices
 $ cd microservices/
 $ TOKEN="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
-$ FOLDER="https://$TOKEN@raw.githubusercontent.com/clarusway/clarusway-aws-devops-4-20/master/devops/hands-on/kubernetes-04-microservice-deployment-and-autoscaling//"
+$ FOLDER="https://$TOKEN@raw.githubusercontent.com/clarusway/clarusway-aws-devops-4-20/master/devops/hands-on/kubernetes/kubernetes-04-microservice-deployment-and-autoscaling//"
 $ curl -s --create-dirs -o "/home/ubuntu/microservices/microservices.tar.gz" -L "$FOLDER"microservices-yaml-files.tar.gz
 $ tar -xvf microservices.tar.gz
 ```
