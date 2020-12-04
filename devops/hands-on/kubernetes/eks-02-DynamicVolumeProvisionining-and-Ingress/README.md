@@ -275,7 +275,7 @@ $ kubectl delete -f dynamic-storage-aws.yaml
 $ mkdir ingress
 $ cd ingress/
 $ TOKEN="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
-$ FOLDER="https://$TOKEN@raw.githubusercontent.com/clarusway/clarusway-aws-devops-1-20/master/aws/hands-on/eks-02-DynamicVolumeProvisionining-and-Ingress/"
+$ FOLDER="https://$TOKEN@raw.githubusercontent.com/clarusway/clarusway-aws-devops-4-20/master/devops/hands-on/kubernetes/eks-02-DynamicVolumeProvisionining-and-Ingress/"
 $ curl -s --create-dirs -o "$HOME/ingress/ingress.tar.gz" -L "$FOLDER"ingress-yaml-files.tar.gz
 $ tar -xvf ingress.tar.gz
 ```
@@ -539,26 +539,30 @@ kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/cont
 ```bash
 $ cat ingress-service.yaml
 
-apiVersion: networking.k8s.io/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: ingress-service
   annotations:
-    kubernetes.io/ingress.class: 'nginx'
-    nginx.ingress.kubernetes.io/use-regex: 'true'
-    nginx.ingress.kubernetes.io/rewrite-target: /$1
+    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
     - http:
         paths:
-          - path: /?(.*)
+          - path: /
+            pathType: Prefix
             backend:
-              serviceName: web-service
-              servicePort: 3000
-          - path: /load/?(.*)
+              service:
+                name: web-service
+                port:
+                  number: 3000
+          - path: /load
+            pathType: Prefix
             backend:
-              serviceName: php-apache-service
-              servicePort: 80
+              service:
+                name: php-apache-service
+                port: 
+                  number: 80
 ```
 
 - Explain the rules part.
