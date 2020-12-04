@@ -8,7 +8,7 @@ metadata:
 spec:
   selector:
     name: web 
-  type: LoadBalancer
+  type: ClusterIP
   ports:
    - name: http
      port: 3000

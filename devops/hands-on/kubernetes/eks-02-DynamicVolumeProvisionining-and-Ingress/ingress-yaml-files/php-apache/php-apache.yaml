@@ -33,5 +33,5 @@ spec:
   ports:
   - port: 80
   selector:
-    run: php-apache 	
-  type: LoadBalancer
+    run: php-apache
+  type: ClusterIP
