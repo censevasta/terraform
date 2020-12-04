@@ -539,30 +539,26 @@ kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/cont
 ```bash
 $ cat ingress-service.yaml
 
-apiVersion: networking.k8s.io/v1
+apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
   name: ingress-service
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
+    kubernetes.io/ingress.class: 'nginx'
+    nginx.ingress.kubernetes.io/use-regex: 'true'
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
 spec:
   rules:
     - http:
         paths:
-          - path: /
-            pathType: Prefix
+          - path: /?(.*)
             backend:
-              service:
-                name: web-service
-                port:
-                  number: 3000
-          - path: /load
-            pathType: Prefix
+              serviceName: web-service
+              servicePort: 3000
+          - path: /load/?(.*)
             backend:
-              service:
-                name: php-apache-service
-                port: 
-                  number: 80
+              serviceName: php-apache-service
+              servicePort: 80
 ```
 
 - Explain the rules part.
