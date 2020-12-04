@@ -105,7 +105,7 @@ $ aws configure
 - Create an EKS cluster via `eksctl`. It will take a while.
 
 ```bash
-$ eksctl create cluster --region us-east-2 --node-type t2.medium --nodes 1 --nodes-min 1 --nodes-max 2 --name mycluster
+$ eksctl create cluster --region us-east-1 --node-type t2.medium --nodes 1 --nodes-min 1 --nodes-max 2 --name mycluster
 
 or
 
