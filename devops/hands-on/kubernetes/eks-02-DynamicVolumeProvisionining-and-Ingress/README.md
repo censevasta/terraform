@@ -108,7 +108,7 @@ $ aws configure
 $ eksctl create cluster --region us-east-1 --node-type t2.medium --nodes 1 --nodes-min 1 --nodes-max 2 --node-volume-size 8 --name mycluster
 ```
 
-- Explain the deault values and pay attention that default value for node-type is m5.large.
+- Explain the default values and pay attention that default value for node-type is m5.large.
 
 ```bash
 $ eksctl create cluster --help
@@ -560,6 +560,49 @@ ingress-service   *       a26be57ce12e64883a5ad050025f2c5b-94ab4c4b033cf5fa.elb.
 ```
 
 On browser, type this  ( a26be57ce12e64883a5ad050025f2c5b-94ab4c4b033cf5fa.elb.eu-central-1.amazonaws.com ), you must see the to-do app web page. If you type `a26be57ce12e64883a5ad050025f2c5b-94ab4c4b033cf5fa.elb.eu-central-1.amazonaws.com/load`, then the apache-php page, "OK!". Notice that we don't use the exposed ports at the services.
+
+- Lets add an host name to ingress-service.yaml. 
+
+```bash
+$ cat ingress-service.yaml
+
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-service
+  annotations:
+    kubernetes.io/ingress.class: 'nginx'
+    nginx.ingress.kubernetes.io/use-regex: 'true'
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+spec:
+  rules:
+  - host: todo.clarusway.us  # Note: Use your domain name instead of clarusway.us
+    http:
+      paths:
+        - path: /?(.*)
+          backend:
+            serviceName: web-service
+            servicePort: 3000
+        - path: /load/?(.*)
+          backend:
+            serviceName: php-apache-service
+            servicePort: 80
+```
+
+- Execute ingress-service.yaml again and list the ingress.
+
+```bash
+$ kubectl apply -f ingress-service.yaml 
+ingress.networking.k8s.io/ingress-service configured
+
+$ kubectl get ingress 
+NAME              HOSTS                   ADDRESS                                                                            PORTS   AGE
+ingress-service   todo.clarusway.us       a26be57ce12e64883a5ad050025f2c5b-94ab4c4b033cf5fa.elb.eu-central-1.amazonaws.com   80      2m8s
+```
+
+- Add `A record` in route53 to your hosted zone for connecting your ingress DNS name.
+
+On browser, type this  (todo.clarusway.us), you must see the to-do app web page. If you type `todo.clarusway.us/load`, then the apache-php page, "OK!". Notice that we don't use the exposed ports at the services.
 
 - Delete the cluster
 
