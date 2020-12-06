@@ -208,7 +208,7 @@ Terraform will perform the following actions:
 
   # aws_instance.sample-resource will be created
   + resource "aws_instance" "tf-example-ec2" {
-      + ami                          = "ami-09d95fab7fff3776c"
+      + ami                          = "ami-04d29b6f966df1537"
       + arn                          = (known after apply)
       + associate_public_ip_address  = (known after apply)
       + availability_zone            = (known after apply)
