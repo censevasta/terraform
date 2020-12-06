@@ -367,7 +367,7 @@ Terraform has a built in command called `terraform state` for advanced state man
 
 ```bash
 $ terraform state list
-aws_instance.tf-examle-ec2
+aws_instance.tf-example-ec2
 ```
 
 ### Creating a AWS S3 bucket
@@ -380,7 +380,7 @@ provider "aws" {
 }
 
 resource "aws_instance" "tf-example-ec2" {
-    ami           = "ami-09d95fab7fff3776c"
+    ami           = "ami-04d29b6f966df1537"
     instance_type = "t2.micro" 
     key_name      = "northvirginia"    #<pem file>
     tags = {
