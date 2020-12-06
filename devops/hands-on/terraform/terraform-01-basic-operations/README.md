@@ -407,7 +407,7 @@ Error: Error creating S3 bucket: AccessDenied: Access Denied
         status code: 403, request id: 8C5E290CD1CD3F71, host id: NT6nPSh0nW9rripGZrOAo48qJpZ2yToKCiGxDl6gfKIXY97uVH67lcvBiQjX9bsJRX3cL1oNVNM=
 ```
 
-- Becoues of we didn't use our aws credentials in ec2 instance in the `tf-example.tf` file , we take an error. So, now create a new role which allow to access ec2 and s3. Then name the role `terraform-ec2-s3-role`. And look at the AWS console, and show ec2 was created , but s3 bucket was not created. Then attach the new role to the ec2 and run the command `terraform apply -auto-approve`.
+- Becouse of we didn't use our aws credentials in ec2 instance in the `tf-example.tf` file , we take an error. So, now create a new role which allow to access ec2 and s3. Then name the role `terraform-ec2-s3-role`. And look at the AWS console, and show ec2 was created , but s3 bucket was not created. Then attach the new role to the ec2 and run the command `terraform apply -auto-approve`.
 
 ```bash
 terraform apply -auto-approve
@@ -626,7 +626,6 @@ terraform apply "DestroyAllResuources.tfplan"
 
 ```bash
 provider "aws" {
-  profile = "default"
   region  = "us-east-1"
 }
 
@@ -673,7 +672,7 @@ output "tf-example-private-ip" {
 }
 
 output "tf-example-versioning" {
-  value = aws_s3_bucket.tf-example-s3
+  value = aws_s3_bucket.tf-example-s3.versioning
 }
 
 ```
