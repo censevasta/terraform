@@ -859,13 +859,16 @@ terraform plan
 
 - Create a new folder name `terraform-remote-state` and move `terraform-aws-example` into it. Then create another folder name `s3-backend` in this folder, too. 
 
-- terraform-remote-state
+```txt
+  terraform-remote-state
     ├── s3-backend
     │   └── backend.tf
     └── terraform-aws-example
         ├── oliver.tfvars
         ├── tf-example.tf
         └── variables.tf
+
+```
 
 - Go to the `s3-backend` folder and create a file name `backend.tf`. Add the followings.
 
@@ -942,6 +945,7 @@ terraform destroy
 
 -Create folders name `terraform-modules`, `modules`, `dev`, `prod`,`vpc`, `main-vpc` and files as belov. 
 
+```txt
  terraform-modules
    ├── dev
    │   └── vpc
@@ -954,6 +958,7 @@ terraform destroy
    └── prod
        └── vpc
            └── prod-vpc.tf
+```
 
 - Go to the `modules/main-vpc/main.tf` file, add the followings.
 
