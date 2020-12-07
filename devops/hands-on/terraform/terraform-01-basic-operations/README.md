@@ -537,11 +537,15 @@ aws_instance.tf-example-ec2
 
 - Run the command `terraform apply -auto-approve` and create S3 bucket again.
 
+```bash
+terraform apply -auto-approve
+```
+
 -  Go to the `tf-example.tf` file and make the changes.
 
 ```bash
 resource "aws_instance" "tf-example-ec2" {
-    - ami           = "ami-09d95fab7fff3776c"
+    - ami           = "ami-04d29b6f966df1537"
     + ami           = "ami-0885b1f6bd170450c"
     instance_type = "t2.micro" 
     key_name      = "northvirginia"    #<pem file>
@@ -617,7 +621,7 @@ terraform plan -destroy -out=DestroyAllResources.tfplan
 - Go to the EC2 and see the file `DestroyAllResources.tfplan` was created. Now, run the file with `terraform apply` command
 
 ```bash
-terraform apply "DestroyAllResuources.tfplan"
+terraform apply "DestroyAllResources.tfplan"
 ```
 
 ### Variables
@@ -640,7 +644,7 @@ variable "ec2-type" {
 }
 
 variable "ec2-ami" {
-  default = "ami-0885b1f6bd170450c"
+  default = "ami-04d29b6f966df1537"
   description = "ami for new ec2"
 }
 
@@ -649,7 +653,7 @@ resource "aws_instance" "tf-example-ec2" {
   instance_type = var.ec2-type
   key_name      = "northvirginia"
   tags = {
-    Name = var.ec2-name
+    Name = "${var.ec2-name}-💻🎯🎉"
   }
 }
 
@@ -724,7 +728,7 @@ variable "s3-bucket-name" {
 - Run the command belov.
 
 ```bash
-terraform plan -var="s3-bucket-name=oliver-new-s3-bucket"
+terraform plan -var="s3-bucket-name=oliver-new-s3-bucket-2"
 ```
 
 - You can define variables with `-var` command
