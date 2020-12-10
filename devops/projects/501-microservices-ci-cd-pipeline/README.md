@@ -22,10 +22,6 @@ Click to see project planning cycles of [the Petclinic Application](./microservi
 
 | Epic | Task  | Students Task | Teachers Task | Task Definition   | Branch  |
 | ---   | :---  | ---           | ---           | :---              | :---    |
-| Preparation | Prepare Public Repo for Students | | Task-1 | Prepare Microservices Project Public Repository for Students on GitHub |
-| Preparation | Prepare Public Repo for Teachers | | Task-2 | Prepare Microservices Project Private Repository for Teachers on GitHub |
-| Introduction | Introduction to the Petclinic Application | | Task-3 | Prepare Slides for Introduction of Petclinic App |
-| Introduction | Showcase the Petclinic Application on Demo Server | | Task-4 | Prepare Demo Server for Petclinic App on AWS EC2 |
 | Local Development Environment | Prepare Development Server Manually on EC2 Instance| MSP-1 | | Prepare development server manually on Amazon Linux 2 for developers, enabled with `Docker` , `Docker-Compose` , `Java 11` , `Git` .  |
 | Local Development Environment | Prepare GitHub Repository for the Project | MSP-2-1 | | Fork and clone the Petclinic app from the Clarusway repository [Petclinic Microservices Application](https://github.com/clarusway/petclinic-microservices.git) |
 | Local Development Environment | Prepare GitHub Repository for the Project | MSP-2-2 | | Prepare base branches namely `master` , `dev` , `release` for DevOps cycle. |
