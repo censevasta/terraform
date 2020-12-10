@@ -8,6 +8,16 @@ This project aims to create full CI/CD Pipeline for microservice based applicati
 
 Click to see project planning cycles of [the Petclinic Application](./microservice-project-501-planning.pdf).
 
+## DevOps Pipelines
+
+### Development Diagram
+
+![Development Diagram](./project-501-dev-diagram.png)
+
+### Pipelines Configurations
+
+![Pipelines to be configured](./project-501-pipelines.png)
+
 ## Flow of Tasks for Project Realization
 
 | Epic | Task  | Students Task | Teachers Task | Task Definition   | Branch  |
